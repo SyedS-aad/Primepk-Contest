@@ -1,0 +1,584 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Roboto+Slab:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "League Spartan", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+body{
+    background-color: #003017;
+}
+.navb{
+    letter-spacing: 1px;
+    z-index: 100;
+}
+
+.hero{
+    height: 90vh;
+    width: 100vw;
+    background-color: #013220;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.left{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    text-align: center;
+
+}
+
+.white{
+    color: #fff;
+    font-size: 3rem;
+    position: relative;
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    text-align: center;
+}
+.green{
+    color: #009000;
+    font-size: 3.1rem;
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    text-align: center;
+}
+
+@media screen and (max-width:431px){
+    .right{
+        display: none;
+    }
+    .left{
+        text-align: center;
+        width: 100%;
+    }
+    .white{
+        text-align: center;
+        font-size: 2.2rem;
+    }
+    .green{
+        font-size: 2.5rem;
+    }
+}
+
+.intro {
+    height: 35vh;
+    width: 100%;
+    background-color: #013220;
+}
+
+.introd_card {
+    transition: ease-in .3s;
+    overflow: hidden;
+    /* border: 2px solid;
+    border-radius: 10px; */
+    color: #fff;
+    /* background-color: #004225; */
+}
+
+.introd_card:hover {
+    transform: scale(1.01);
+    background-color: #004225;
+    color: #fff;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 430px) {
+    .intro {
+        height: auto; /* Let the height adjust based on content */
+    }
+    
+    .timeline {
+        margin-top: 50px; /* Increase this margin to push the timeline down */
+    }
+}
+/* General Timeline Styling */
+.timeline {
+    height: auto; /* Allow the height to adjust automatically */
+    width: 100%;
+    background-color: #013220;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative; /* Ensure the timeline elements are positioned relative to this container */
+}
+
+/* Center the title */
+.timeline .title {
+    text-align: center;
+    margin-bottom: 40px; /* Add space below the title */
+    color: #fff;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: white;
+    top: calc(100px + 2rem); /* Start the timeline below the title */
+    bottom: 10rem;
+    left: 50%;
+    margin-left: -3px;
+    z-index: 1;
+}
+
+/* Circle at the top of the timeline */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 50%;
+    margin-left: -12.5px;
+     top: calc(90px + 2rem - 12.5px); /*Position it at the start of the timeline */
+    background-color: green;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+/* Circle at the bottom of the timeline */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 50%;
+    margin-left: -12.5px;
+    bottom: 10px; /* Position it at the end of the timeline */
+    background-color: green;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+/* Container around content */
+.checkpoint {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+/* The circles on the timeline */
+.checkpoint::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -13px;
+    background-color: green;
+    border: 4px solid #fff;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Place the container to the left */
+.lefts {
+    left: 0;
+}
+
+/* Place the container to the right */
+.rights {
+    left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.lefts::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.rights::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.rights::after {
+    left: -13px;
+    top: 22px;
+}
+
+/* The actual content */
+.content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 768px wide */
+@media screen and (max-width: 768px) {
+    /* Adjust the height of the timeline */
+    .timeline::before {
+        left: 31px;
+        bottom: 240rem;
+    }
+
+    /* Full-width containers */
+    .checkpoint {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    /* Make sure that all arrows are pointing leftwards */
+    .checkpoint::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+
+    /* Make sure all circles are at the same spot */
+    .lefts::after,
+    .rights::after {
+        left: 15px;
+    }
+
+    /* Make all right containers behave like the left ones */
+    .rights {
+        left: 0%;
+    }
+
+    /* Center the text content */
+    .content {
+        text-align: center;
+    }
+}
+
+/* Media queries - Responsive timeline on screens less than 480px wide */
+@media screen and (max-width: 480px) {
+    .checkpoint {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .timeline::before{
+        bottom: 500rem;
+    }
+
+    /* Further adjust the circle positioning */
+    .checkpoint::after {
+        top: 10px;
+        left: 10px;
+        width: 20px;
+        height: 20px;
+        right: auto;
+    }
+
+    /* Adjust arrow positioning */
+    .checkpoint::before {
+        top: 15px;
+        left: 40px;
+    }
+}
+
+  
+
+
+.gallery{
+    height: auto;
+    width: 100vw;
+    /* margin-top: 20rem; */
+    background-color: #013220;
+}
+.gallery h2{
+    color: #fff;
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* Default styles (for larger screens) */
+.gallery {
+    display: block;
+}
+
+.lopt {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically (if needed) */
+    height: auto;
+    width: auto;
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media screen and (max-width: 575.98px) {
+    .gallery {
+        display: none;
+    }
+    .lopt {
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Center vertically if needed */
+        height: auto;
+        width: auto;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+    .gallery {
+        display: none;
+    }
+    .lopt {
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Center vertically if needed */
+        height: auto;
+        width: auto;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+    .gallery {
+        display: none;
+    }
+    .lopt {
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Center vertically if needed */
+        height: auto;
+        width: auto;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+    .gallery {
+        display: none;
+    }
+    .lopt {
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Center vertically if needed */
+        height: auto;
+        width: auto;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+    .gallery {
+        display: block;
+    }
+    .lopt {
+        display: none;
+    }
+}
+
+
+
+.quote{
+    height: auto;
+    width: 100vw;
+    background-color: #013220;
+    margin-top: 20px;
+}
+.masonry {
+    column-count: 3;
+    column-gap: 1em;
+    margin: 1.5em;
+}
+
+.quote-card {
+    background: #ffffff;
+    padding: 1.5em;
+    margin: 0 0 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    break-inside: avoid;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quote-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.quote-card p {
+    margin: 0;
+    font-size: 1.2em;
+    font-style: italic;
+    color: #333;
+}
+
+@media screen and (max-width: 768px) {
+    .masonry {
+        column-count: 2;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .masonry {
+        column-count: 1;
+    }
+}
+
+.quiz-container {
+    background-color: #013220;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.start-btn, .next-btn, .result-btn {
+    background-color: #006400;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.start-btn:hover, .next-btn:hover, .result-btn:hover {
+    background-color: #228B22;
+}
+
+.quiz-container, .start-btn, .next-btn, .result-btn {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.question-container {
+    display: none;
+    margin-top: 20px;
+}
+
+.result-container {
+    display: none;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #004225; /* Dark Green Background */
+    color: #ffffff; /* White Text */
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.footer-content div {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+}
+
+.footer-content h3 {
+    border-bottom: 2px solid #ffffff; /* White underline */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #00ff00; /* Bright Green Text */
+}
+
+.footer-content p, .footer-content ul, .footer-content a {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.footer-content a {
+    color: #00ff00; /* Bright Green Links */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-content a:hover {
+    color: #ffffff; /* White on Hover */
+}
+
+.social-media a {
+    margin: 0 5px;
+}
+
+.footer-bottom {
+    background-color: #003017; /* Even Darker Green */
+    padding: 20px 0;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: #00ff00; /* Bright Green Links */
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    color: #ffffff; /* White on Hover */
+}
+
+.back-to-top {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#quote {
+    font-style: italic;
+    font-size: 16px;
+    animation: fadeIn 3s ease-in-out infinite;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+@media screen and (min-width:481) and (max-width:820) {
+    .timeline::before{
+        bottom: 6000rem;
+    }
+}
